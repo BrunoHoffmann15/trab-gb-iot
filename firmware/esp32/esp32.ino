@@ -62,7 +62,7 @@ void callback(char* topic, byte* payload, unsigned int length) {
   DeserializationError error = deserializeJson(doc, msg);
 
   const char* action = doc["action"];
-  const char* device = doc["device"];
+  const char* device = doc["idDevice"];
 
   if (strcmp(device, DEVICE_ID) != 0) {
     Serial.println("Mensagem para outro dispositivo. Ignorada.");
@@ -125,7 +125,7 @@ void loop() {
 
   // Convert sensor data to JSON
   String payload = "{";
-  payload += "\"device\": \"" + String(DEVICE_ID) + "\",";
+  payload += "\"idDevice\": \"" + String(DEVICE_ID) + "\",";
   payload += "\"temperature\": " + String(temperatura, 2);
   payload += "}";
 
