@@ -10,7 +10,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection = "devices")
 public class Device {
     @Id
-    public String idDevice;
+    public String id;
 
     public String idAirConditioner;
 }

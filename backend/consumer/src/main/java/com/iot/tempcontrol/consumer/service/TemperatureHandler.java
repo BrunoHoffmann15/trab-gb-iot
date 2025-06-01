@@ -57,7 +57,7 @@ public class TemperatureHandler {
     private List<Device> getAllDevicesInfo(String idAirConditioner) {
         var allDevices = deviceRepository.findAllByIdAirConditioner(idAirConditioner);
         return allDevices.stream().map(d -> {
-            var temperaturesE = temperatureRepository.findAllByIdDevice(d.idDevice);
+            var temperaturesE = temperatureRepository.findAllByIdDevice(d.id);
             var temperaturesD = temperaturesE
                     .stream()
                     .map(TemperatureAdapter::convertToDeviceSensorTemperature)
