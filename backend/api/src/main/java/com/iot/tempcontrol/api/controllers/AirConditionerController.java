@@ -29,9 +29,11 @@ public class AirConditionerController {
     }
 
     @PostMapping
-    public void create(@RequestBody AirConditionerCreateRequest request) {
+    public ResponseEntity<?> create(@RequestBody AirConditionerCreateRequest request) {
         var airConditioner = request.convert();
-        airConditionerService.create(airConditioner);
+        var response = airConditionerService.create(airConditioner);
+
+        return ResponseEntity.ok(response);
     }
 
 }

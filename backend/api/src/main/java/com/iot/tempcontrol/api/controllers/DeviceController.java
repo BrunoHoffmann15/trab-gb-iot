@@ -1,6 +1,8 @@
 package com.iot.tempcontrol.api.controllers;
 
 import com.iot.tempcontrol.api.domains.Device;
+import com.iot.tempcontrol.api.models.DeviceCreateRequest;
+import com.iot.tempcontrol.api.models.DeviceSensorTemperatureCreateRequest;
 import com.iot.tempcontrol.api.services.DeviceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -30,8 +32,11 @@ public class DeviceController {
     }
 
     @PostMapping
-    public void createDevice(@RequestBody Device device) {
-        deviceService.save(device);
+    public ResponseEntity<?> createDevice(@RequestBody DeviceCreateRequest request) {
+        var device = request.convert();
+        var response = deviceService.save(device);
+
+        return ResponseEntity.ok(response);
     }
 
     @DeleteMapping("/{id}")
@@ -40,7 +45,7 @@ public class DeviceController {
         return ResponseEntity.noContent().build();
     }
 
-    @GetMapping("/devices/{id}/temperatures")
+    @GetMapping("/{id}/temperatures")
     public ResponseEntity<?> getDeviceTemperature(@PathVariable String id) {
         var device = deviceService.findById(id);
 
@@ -50,6 +55,19 @@ public class DeviceController {
         var temperatures = deviceService.getAllTemperatures(id);
 
         return ResponseEntity.ok(temperatures);
+    }
+
+    @PostMapping("/{id}/temperatures")
+    public ResponseEntity<?> createTemperature(@PathVariable String id, @RequestBody DeviceSensorTemperatureCreateRequest request) {
+        var device = deviceService.findById(id);
+
+        if (device.isEmpty())
+            return ResponseEntity.notFound().build();
+
+        var temperature = request.convert(id);
+        var response = deviceService.createNewTemperature(temperature);
+
+        return ResponseEntity.ok(response);
     }
 }
 

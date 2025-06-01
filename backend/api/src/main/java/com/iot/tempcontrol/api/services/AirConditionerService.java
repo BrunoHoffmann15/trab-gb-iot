@@ -21,7 +21,7 @@ public class AirConditionerService {
         return airConditionerRepository.findById(id);
     }
 
-    public void create(AirConditioner airConditioner) {
-        airConditionerRepository.insert(airConditioner);
+    public AirConditioner create(AirConditioner airConditioner) {
+        return airConditionerRepository.insert(airConditioner);
     }
 }
