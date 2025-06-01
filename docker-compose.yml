@@ -10,17 +10,5 @@ services:
     volumes:
       - mongodb_data:/data/db
 
-  mosquitto:
-    image: eclipse-mosquitto:2.0
-    container_name: mosquitto
-    restart: always
-    ports:
-      - "1883:1883"     # Porta para comunicação MQTT
-      - "9001:9001"     # Porta para WebSocket (opcional)
-    volumes:
-      - ./mosquitto/config:/mosquitto/config
-      - ./mosquitto/data:/mosquitto/data
-      - ./mosquitto/log:/mosquitto/log
-
 volumes:
   mongodb_data:
