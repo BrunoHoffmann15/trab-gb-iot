@@ -11,4 +11,14 @@ public class TemperatureAdapter {
                 deviceSensorTemperature.createdAt
         );
     }
+
+    public static DeviceSensorTemperature convertToDeviceSensorTemperature(Temperature temperature) {
+        return new DeviceSensorTemperature(
+                temperature.idDevice,
+                temperature.temperature,
+                temperature.createdAt
+        );
+    }
 }
+
+

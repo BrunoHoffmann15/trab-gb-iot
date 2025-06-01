@@ -5,9 +5,13 @@ import java.util.List;
 import java.util.Optional;
 
 public class AirConditioner {
-    public String idAirConditioner;
     public List<Device> devices;
     public TemperatureRange temperatureRange;
+
+    public AirConditioner(List<Device> devices, TemperatureRange temperatureRange) {
+        this.devices = devices;
+        this.temperatureRange = temperatureRange;
+    }
 
     public boolean isAllDevicesWithUpdatedTemperature() {
         return devices.stream()

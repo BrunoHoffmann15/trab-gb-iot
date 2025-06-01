@@ -7,7 +7,7 @@ public class Device {
     public String idDevice;
     public List<DeviceSensorTemperature> deviceSensorTemperatureList;
 
-    public void populateTemperature(List<DeviceSensorTemperature> deviceSensorTemperatureList) {
+    public Device(List<DeviceSensorTemperature> deviceSensorTemperatureList) {
         this.deviceSensorTemperatureList = deviceSensorTemperatureList;
     }
 

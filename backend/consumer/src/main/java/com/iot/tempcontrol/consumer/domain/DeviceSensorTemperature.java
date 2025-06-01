@@ -23,6 +23,14 @@ public class DeviceSensorTemperature {
         this.createdAt = LocalDateTime.now();
     }
 
+    public DeviceSensorTemperature(String idDevice,
+                                   float temperature,
+                                   LocalDateTime createdAt) {
+        this.temperature = temperature;
+        this.idDevice = idDevice;
+        this.createdAt = createdAt;
+    }
+
     public float getTemperature() {
         return temperature;
     }
