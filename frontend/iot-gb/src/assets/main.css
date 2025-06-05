@@ -26,3 +26,44 @@ a,
   height: 100vh;
   width: 100vw;
 }
+
+h1 {
+  margin-bottom: .5rem;
+  color: hsla(160, 100%, 37%, 1);
+}
+
+.list {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.table {
+  width: 90%;
+  margin-bottom: 1rem;
+}
+
+.item {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.tableHeaderCell {
+  font-weight: 600;
+  border: 1px solid #333;
+  padding: .5rem;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.tableRowCell {
+  color: #fff;
+  border: 1px solid #333;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  text-align: center;
+}
+
+.row:last-child .tableRowCell{
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}

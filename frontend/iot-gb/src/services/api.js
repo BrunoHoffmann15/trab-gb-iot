@@ -16,7 +16,12 @@ async function getAirConditioners() {
   return api.get('/air-conditioners')
 }
 
+async function getMeasurements(deviceId) {
+return api.get(`/devices/${deviceId}/temperatures`)
+}
+
 export {
   getDevices,
   getAirConditioners,
+  getMeasurements
 }
