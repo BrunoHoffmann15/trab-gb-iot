@@ -4,10 +4,12 @@ import java.util.List;
 import java.util.Optional;
 
 public class AirConditioner {
+    public String referencedAirConditioner;
     public List<Device> devices;
     public TemperatureRange temperatureRange;
 
-    public AirConditioner(List<Device> devices, TemperatureRange temperatureRange) {
+    public AirConditioner(String referencedAirConditioner, List<Device> devices, TemperatureRange temperatureRange) {
+        this.referencedAirConditioner = referencedAirConditioner;
         this.devices = devices;
         this.temperatureRange = temperatureRange;
     }

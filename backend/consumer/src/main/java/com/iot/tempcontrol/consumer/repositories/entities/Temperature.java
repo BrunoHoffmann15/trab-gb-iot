@@ -15,15 +15,18 @@ public class Temperature {
     @Id
     public String id;
 
+    public String referencedDevice;
+
     public String idDevice;
 
     public float temperature;
 
     public LocalDateTime createdAt;
 
-    public Temperature(String idDevice, float temperature, LocalDateTime createdAt) {
+    public Temperature(String idDevice, String referencedDevice, float temperature, LocalDateTime createdAt) {
         this.createdAt = createdAt;
         this.temperature = temperature;
         this.idDevice = idDevice;
+        this.referencedDevice = referencedDevice;
     }
 }

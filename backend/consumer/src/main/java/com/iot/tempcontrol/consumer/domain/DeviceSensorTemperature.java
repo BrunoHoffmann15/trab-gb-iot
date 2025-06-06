@@ -10,21 +10,25 @@ public class DeviceSensorTemperature {
     public float temperature;
 
     @JsonProperty("idDevice")
+    public String referencedDevice;
+
     public String idDevice;
 
     public LocalDateTime createdAt;
 
-    public DeviceSensorTemperature(@JsonProperty("idDevice") String idDevice,
+    public DeviceSensorTemperature(@JsonProperty("idDevice") String referencedDevice,
                                    @JsonProperty("temperature") float temperature) {
         this.temperature = temperature;
-        this.idDevice = idDevice;
+        this.referencedDevice = referencedDevice;
         this.createdAt = LocalDateTime.now();
     }
 
     public DeviceSensorTemperature(String idDevice,
+                                   String referencedDevice,
                                    float temperature,
                                    LocalDateTime createdAt) {
         this.temperature = temperature;
+        this.referencedDevice = referencedDevice;
         this.idDevice = idDevice;
         this.createdAt = createdAt;
     }

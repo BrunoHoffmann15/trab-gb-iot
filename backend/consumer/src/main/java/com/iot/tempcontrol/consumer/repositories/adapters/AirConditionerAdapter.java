@@ -8,6 +8,6 @@ import java.util.List;
 public class AirConditionerAdapter {
     public static AirConditioner convertFromEntityToDomain(com.iot.tempcontrol.consumer.repositories.entities.AirConditioner airConditioner,
                                                     List<Device> deviceList) {
-        return new AirConditioner(deviceList, airConditioner.temperatureRange);
+        return new AirConditioner(airConditioner.referencedAirConditioner, deviceList, airConditioner.temperatureRange);
     }
 }

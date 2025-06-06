@@ -7,6 +7,7 @@ public class TemperatureAdapter {
     public static Temperature convertToTemperature(DeviceSensorTemperature deviceSensorTemperature) {
         return new Temperature(
                 deviceSensorTemperature.idDevice,
+                deviceSensorTemperature.referencedDevice,
                 deviceSensorTemperature.temperature,
                 deviceSensorTemperature.createdAt
         );
@@ -15,6 +16,7 @@ public class TemperatureAdapter {
     public static DeviceSensorTemperature convertToDeviceSensorTemperature(Temperature temperature) {
         return new DeviceSensorTemperature(
                 temperature.idDevice,
+                temperature.referencedDevice,
                 temperature.temperature,
                 temperature.createdAt
         );

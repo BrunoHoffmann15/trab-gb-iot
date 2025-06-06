@@ -2,10 +2,11 @@ package com.iot.tempcontrol.api.domains;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.annotation.Collation;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDateTime;
 
-@Collation("temperatures")
+@Document(collection = "temperatures")
 public class DeviceSensorTemperature {
     @Id
     public String id;

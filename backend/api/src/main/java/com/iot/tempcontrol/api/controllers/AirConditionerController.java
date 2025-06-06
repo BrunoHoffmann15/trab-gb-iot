@@ -1,6 +1,7 @@
 package com.iot.tempcontrol.api.controllers;
 
 import com.iot.tempcontrol.api.models.AirConditionerCreateRequest;
+import com.iot.tempcontrol.api.models.AirConditionerUpdateRequest;
 import com.iot.tempcontrol.api.services.AirConditionerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -34,6 +35,17 @@ public class AirConditionerController {
         var response = airConditionerService.create(airConditioner);
 
         return ResponseEntity.ok(response);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<?> update(@PathVariable String id, @RequestBody AirConditionerUpdateRequest request) {
+        var airConditioner = request.convert(id);
+
+        if (airConditionerService.getById(id).isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+
+        return ResponseEntity.ok(airConditionerService.update(airConditioner));
     }
 
 }

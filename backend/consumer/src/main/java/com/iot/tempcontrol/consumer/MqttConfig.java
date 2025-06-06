@@ -9,9 +9,11 @@ import org.springframework.integration.annotation.ServiceActivator;
 import org.springframework.integration.channel.DirectChannel;
 import org.springframework.integration.core.MessageProducer;
 import org.springframework.integration.mqtt.inbound.MqttPahoMessageDrivenChannelAdapter;
+import org.springframework.integration.mqtt.outbound.MqttPahoMessageHandler;
 import org.springframework.integration.mqtt.support.DefaultPahoMessageConverter;
 import org.springframework.messaging.MessageChannel;
 import org.springframework.integration.mqtt.core.DefaultMqttPahoClientFactory;
+import org.springframework.messaging.MessageHandler;
 
 @Configuration
 public class MqttConfig {
@@ -55,6 +57,21 @@ public class MqttConfig {
     public MessageChannel mqttInputChannel() {
         return new DirectChannel();
     }
+
+    @Bean
+    public MessageChannel mqttOutboundChannel() { return new DirectChannel(); }
+
+    @Bean
+    @ServiceActivator(inputChannel = "mqttOutboundChannel")
+    public MessageHandler outbound() {
+        MqttPahoMessageHandler messageHandler =
+                new MqttPahoMessageHandler("spring-mqtt-client1233", clientFactory());
+        messageHandler.setAsync(true);
+        messageHandler.setDefaultQos(0);
+        // messageHandler.setDefaultRetained(true);
+        return messageHandler;
+    }
+
 
     @Bean
     public MessageProducer inbound() {

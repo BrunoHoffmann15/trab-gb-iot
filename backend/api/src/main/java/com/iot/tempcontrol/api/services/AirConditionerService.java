@@ -24,4 +24,8 @@ public class AirConditionerService {
     public AirConditioner create(AirConditioner airConditioner) {
         return airConditionerRepository.insert(airConditioner);
     }
+
+    public AirConditioner update(AirConditioner airConditioner) {
+        return airConditionerRepository.save(airConditioner);
+    }
 }
