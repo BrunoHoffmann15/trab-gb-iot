@@ -15,13 +15,14 @@ const char* mqtt_password = "iot-network-broker";
 
 // === ID do dispositivo ===
 const char* DEVICE_ID = "device01";
+const char* AIR_ID = "air01";
 
 // === LED ===
 const int LED_PIN = 2; 
 
 // === Tópicos MQTT ===
 String topic_temp = "/temperature/" + String(DEVICE_ID);
-String topic_ac = "/air_conditioning/" + String(DEVICE_ID);
+String topic_ac = "/air_conditioning/" + String(AIR_ID);
 
 // === Configuração do DHT ===
 #define DHTPIN 15
@@ -62,21 +63,23 @@ void callback(char* topic, byte* payload, unsigned int length) {
   DeserializationError error = deserializeJson(doc, msg);
 
   const char* action = doc["action"];
-  const char* device = doc["idDevice"];
+  const char* airConditioner = doc["idAirConditioner"];
 
-  if (strcmp(device, DEVICE_ID) != 0) {
+  if (strcmp(airConditioner, AIR_ID) != 0) {
     Serial.println("Mensagem para outro dispositivo. Ignorada.");
     return;
   }
 
   if (strcmp(action, "INCREASE") == 0) {
-    digitalWrite(LED_PIN, HIGH);
-    Serial.println("Ação: INCREASE - LED ACESO.");
+      digitalWrite(LED_PIN, HIGH);
+      Serial.println("Ação: INCREASE - LED ACESO.");
   } else if (strcmp(action, "DECREASE") == 0) {
-    digitalWrite(LED_PIN, LOW);
-    Serial.println("Ação: DECREASE - LED APAGADO.");
+      digitalWrite(LED_PIN, LOW);
+      Serial.println("Ação: DECREASE - LED APAGADO.");
+  } else if (strcmp(action, "KEEP") == 0) {
+      Serial.println("Ação: KEEP - LED CONTINUA NO ESTADO ATUAL");
   } else {
-    Serial.println("Ação desconhecida.");
+      Serial.println("Ação desconhecida.");
   }
 }
 
