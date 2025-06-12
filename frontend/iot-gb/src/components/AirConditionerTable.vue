@@ -30,7 +30,7 @@ export default {
           <td class="tableRowCell">{{ value.referencedAirConditioner }}</td>
           <td class="tableRowCell">
             <div class="list">
-              <span v-for="key in Object.keys(value.temperatureRange) || {}" :key class="item">{{ `${key}: ${value.temperatureRange[key]}` }}</span>
+              <span v-for="key in Object.keys(value.temperatureRange || {}) || {}" :key class="item">{{ `${key}: ${value.temperatureRange[key]}` }}</span>
             </div>
           </td>
           <td class="tableRowCell">

@@ -38,6 +38,31 @@ const actions = {
     } catch (e) {
       console.error(e)
     }
+  },
+  async addNewAirConditioner({ dispatch }, data) {
+    try {
+      console.debug(data)
+      await api.addAirConditioner(data)
+      dispatch('fetchAirConditioners')
+    } catch (e) {
+      console.error(e)
+    }
+  },
+  async addNewDevice({ dispatch }, data) {
+    try {
+      await api.addDevice(data)
+      dispatch('fetchDevices')
+    } catch (e) {
+      console.error(e)
+    }
+  },
+  async addNewMeasurement(context, data) {
+    try {
+      const { dateTime, temperature, idDevice } = data
+      await api.addMeasurement({ createdAt: dateTime, temperature}, idDevice)
+    } catch (e) {
+      console.error(e)
+    }
   }
 }
 

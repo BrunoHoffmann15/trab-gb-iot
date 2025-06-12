@@ -113,11 +113,6 @@ export default {
   max-width: 300px;
 }
 
-.subtitle {
-  margin-bottom: 1rem;
-  color: #fff;
-}
-
 .subtitleList {
   list-style-type: none;
   margin: 0;

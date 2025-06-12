@@ -20,8 +20,26 @@ async function getMeasurements(deviceId) {
 return api.get(`/devices/${deviceId}/temperatures`)
 }
 
+async function addAirConditioner(data) {
+  console.debug(data)
+  return api.post('/air-conditioners', data)
+}
+
+async function addDevice(data) {
+  console.debug(data)
+  return api.post('/devices', data)
+}
+
+async function addMeasurement(data, deviceId) {
+  console.debug(data, deviceId)
+  return api.post(`/devices/${deviceId}/temperatures`, data)
+}
+
 export {
   getDevices,
   getAirConditioners,
-  getMeasurements
+  getMeasurements,
+  addAirConditioner,
+  addDevice,
+  addMeasurement
 }
