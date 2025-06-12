@@ -9,7 +9,8 @@ const state = () => ({
 
 // getters
 // returns the values of current state
-const getters = {}
+const getters = {
+}
 
 // actions
 // api fetches + logic

@@ -1,5 +1,5 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
+import { RouterView } from 'vue-router'
 import SideNav from './components/SideNav.vue'
 </script>
 
@@ -15,7 +15,7 @@ import SideNav from './components/SideNav.vue'
 <style scoped>
 
 .nav {
-  width: 16%;
+  width: 10%;
 }
 
 main {

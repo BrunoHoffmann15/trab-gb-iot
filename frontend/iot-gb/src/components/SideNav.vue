@@ -12,8 +12,8 @@ export default {
   <p class="title">Menu</p>
   <nav class="navWrapper">
     <RouterLink to="/" class="link">Dashboard</RouterLink>
-    <RouterLink to="/create" class="link">Cadastros</RouterLink>
     <RouterLink to="/factory" class="link">Galpão</RouterLink>
+    <RouterLink to="/create" class="link">Cadastros</RouterLink>
   </nav>
 </template>
 
