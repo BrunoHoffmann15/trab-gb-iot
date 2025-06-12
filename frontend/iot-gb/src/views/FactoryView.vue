@@ -65,78 +65,106 @@ export default {
 </script>
 
 <template>
-  <h1 class="title">Factory</h1>
-  <div>
-    <div class="scheme">
-
-      <div v-for="row in scheme" class="row">
-        <device v-for="device in row" :device="device" :last-measurement="measurementsByDevice[device.id]" />
-      </div>
-    </div>
+  <div class="view">
+    <h1 class="title">Factory</h1>
     <div>
-      <h2>Legenda de cores</h2>
-      <ul>
-        <li>
-          <div class="subtitleColor tooCold" />
-          <span>Temperatura abaixo de 0</span>
-        </li>
-        <li>
-          <div class="subtitleColor cold" />
-          <span>Temperatura entre 0 e 22</span>
-        </li>
-        <li>
-          <div class="subtitleColor ideal" />
-          <span>Temperatura entre 22 e 24</span>
-        </li>
-        <li>
-          <div class="subtitleColor warm" />
-          <span>Temperatura entre 24 e 34</span>
-        </li>
-        <li>
-          <div class="subtitleColor hot" />
-          <span>Temperatura acima de 34</span>
-        </li>
-      </ul>
+      <div class="scheme">
+  
+        <div v-for="row in scheme" class="row">
+          <device v-for="device in row" :device="device" :last-measurement="measurementsByDevice[device.id]" />
+        </div>
+      </div>
+      <div class="subtitleWrapper">
+        <h2 class=subtitle>Legenda de cores</h2>
+        <ul class="subtitleList">
+          <li class="subtitleItem">
+            <div class="subtitleColor tooCold" />
+            <span>Temperatura abaixo de 0</span>
+          </li>
+          <li class="subtitleItem">
+            <div class="subtitleColor cold" />
+            <span>Temperatura entre 0 e 22</span>
+          </li>
+          <li class="subtitleItem">
+            <div class="subtitleColor ideal" />
+            <span>Temperatura entre 22 e 24</span>
+          </li>
+          <li class="subtitleItem">
+            <div class="subtitleColor warm" />
+            <span>Temperatura entre 24 e 34</span>
+          </li>
+          <li class="subtitleItem">
+            <div class="subtitleColor hot" />
+            <span>Temperatura acima de 34</span>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </template>
 
 <style scoped>
+.view {
+  padding: 2rem;
+}
+
+.subtitleWrapper {
+  margin-top: 1rem;
+  max-width: 300px;
+}
+
+.subtitle {
+  margin-bottom: 1rem;
+  color: #fff;
+}
+
+.subtitleList {
+  list-style-type: none;
+  margin: 0;
+  padding: 1rem;
+  border: solid 1px rgb(102, 10, 129);
+}
+
+.subtitleItem {
+  display: flex;
+}
+
 .subtitleColor {
   width: 20px;
   height: 20px;
-  background-color: #ffffff3b;
+  background-color: #ffffff;
+  margin-right: 1rem;
 }
 
 .tooCold {
-  background-color: #b36bcf3b;
+  background-color: #b36bcf;
 }
 
 .cold {
-  background-color: #6b6dcf3b;
+  background-color: #6b6dcf;
 }
 
 .ideal {
-  background-color: #6bcfb13b;
+  background-color: #6bcfb1;
 }
 
 .warm {
-  background-color: #fd8c0a3b;
+  background-color: #fd8c0a;
 }
 
 .hot {
-  background-color: #fd0a0a3b;
+  background-color: #fd0a0a;
 }
 
 .scheme {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .row {
-  background-color:rgba(206, 206, 206, 0.14);
+  background-color:rgb(37, 37, 37);
   display: flex;
 }
 
