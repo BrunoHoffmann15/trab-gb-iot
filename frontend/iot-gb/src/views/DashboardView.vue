@@ -6,8 +6,8 @@ import ChartWrapper from '../components/charts/ChartWrapper.vue'
 </script>
 
 <template>
-  <DevicesTable />
-  <AirConditionerTable />
-  <MeasurementsTable />
   <ChartWrapper />
+  <AirConditionerTable />
+  <DevicesTable />
+  <MeasurementsTable />
 </template>

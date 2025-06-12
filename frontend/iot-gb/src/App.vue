@@ -15,11 +15,12 @@ import SideNav from './components/SideNav.vue'
 <style scoped>
 
 .nav {
-  width: 20%;
+  width: 16%;
 }
 
 main {
   flex: 1;
   padding: 1rem;
+  overflow-y: scroll;
 }
 </style>

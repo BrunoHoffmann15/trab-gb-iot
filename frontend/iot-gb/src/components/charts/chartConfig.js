@@ -13,7 +13,7 @@ export const chartData = (temperatureMeasurementsByDevice) => {
     }
   })
   return {
-    labels: temperatureMeasurementsByDevice[keys[0]].map(measurement => measurement.createdAt),
+    labels: temperatureMeasurementsByDevice[keys[0]].map(measurement => new Date(measurement.createdAt).toISOString().split('T')[1].split('.')[0]),
     datasets
   }
 }

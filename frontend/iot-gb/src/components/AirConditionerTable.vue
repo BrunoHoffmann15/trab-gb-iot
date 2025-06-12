@@ -19,7 +19,7 @@ export default {
 
 <template>
   <div>
-    <h1>AirConditioners</h1>
+    <h1>Air Conditioners</h1>
     <table class="table">
       <tbody>
         <tr>
@@ -27,6 +27,7 @@ export default {
         </tr>
         <tr v-for="value in airConditioners" class="row">
           <td class="tableRowCell">{{ value.id }}</td>
+          <td class="tableRowCell">{{ value.referencedAirConditioner }}</td>
           <td class="tableRowCell">
             <div class="list">
               <span v-for="key in Object.keys(value.temperatureRange) || {}" :key class="item">{{ `${key}: ${value.temperatureRange[key]}` }}</span>

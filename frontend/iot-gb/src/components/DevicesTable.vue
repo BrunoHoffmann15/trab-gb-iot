@@ -27,6 +27,7 @@ export default {
         </tr>
         <tr v-for="value in devices" class="row">
           <td class="tableRowCell">{{ value.id }}</td>
+          <td class="tableRowCell">{{ value.referencedDevice }}</td>
           <td class="tableRowCell">
             <div class="list">
               <span v-for="key in Object.keys(value.location)" :key class="item">{{ `${key}: ${value.location[key]}` }}</span>

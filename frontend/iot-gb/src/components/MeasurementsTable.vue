@@ -21,7 +21,12 @@ export default {
     }
   },
   methods: {
-    ...mapActions('state', ['fetchMeasurements'])
+    ...mapActions('state', ['fetchMeasurements']),
+    getCreatedAtLabel(createdAt) {
+      const dateObj = new Date(createdAt)
+      const [date, time] = dateObj.toISOString().split('T')
+      return `Dia: ${date} | Hora: ${time.split('.')[0]}`
+    }
   }
 }
 </script>
@@ -37,7 +42,9 @@ export default {
         <tr v-for="value in measurements" class="row">
           <td class="tableRowCell">{{ value.id }}</td>
           <td class="tableRowCell">{{ value.idDevice }}</td>
-          <td class="tableRowCell">{{ new Date(value.createdAt).toLocaleString("default", { day: 'numeric', month: 'long', year: 'numeric'}) }}</td>
+          <td class="tableRowCell">
+            {{ getCreatedAtLabel(value.createdAt) }}
+          </td>
           <td class="tableRowCell">{{ value.temperature }}</td>
         </tr>
       </tbody>
