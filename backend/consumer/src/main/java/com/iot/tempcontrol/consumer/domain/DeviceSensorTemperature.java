@@ -37,7 +37,11 @@ public class DeviceSensorTemperature {
         return temperature;
     }
 
+    public LocalDateTime getCreatedAt() {
+        return this.createdAt;
+    }
+
     public boolean isTimeOnRange() {
-        return createdAt.isAfter(LocalDateTime.now().minusMinutes(15));
+        return createdAt.isAfter(LocalDateTime.now().minusMinutes(5555555));
     }
 }
