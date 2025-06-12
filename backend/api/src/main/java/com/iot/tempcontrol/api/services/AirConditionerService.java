@@ -28,4 +28,8 @@ public class AirConditionerService {
     public AirConditioner update(AirConditioner airConditioner) {
         return airConditionerRepository.save(airConditioner);
     }
+
+    public void delete(AirConditioner airConditioner) {
+        airConditionerRepository.delete(airConditioner);
+    }
 }

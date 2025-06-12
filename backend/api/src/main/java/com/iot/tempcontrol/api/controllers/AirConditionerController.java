@@ -48,4 +48,17 @@ public class AirConditionerController {
         return ResponseEntity.ok(airConditionerService.update(airConditioner));
     }
 
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> delete(@PathVariable String id) {
+        var airConditioner=  airConditionerService.getById(id);
+
+        if (airConditioner.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+
+        airConditionerService.delete(airConditioner.get());
+
+        return ResponseEntity.ok().build();
+    }
+
 }

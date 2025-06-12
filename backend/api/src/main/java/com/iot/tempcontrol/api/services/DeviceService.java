@@ -38,7 +38,15 @@ public class DeviceService {
         return deviceSensorTemperatureRepository.findByIdDevice(idDevice);
     }
 
+    public Optional<DeviceSensorTemperature> getTemperature(String ideTemperature) {
+        return deviceSensorTemperatureRepository.findById(ideTemperature);
+    }
+
     public DeviceSensorTemperature createNewTemperature(DeviceSensorTemperature deviceSensorTemperature) {
         return deviceSensorTemperatureRepository.save(deviceSensorTemperature);
+    }
+
+    public void deleteTemperature(DeviceSensorTemperature deviceSensorTemperature) {
+        deviceSensorTemperatureRepository.delete(deviceSensorTemperature);
     }
 }

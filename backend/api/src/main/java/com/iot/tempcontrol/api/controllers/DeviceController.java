@@ -69,5 +69,17 @@ public class DeviceController {
 
         return ResponseEntity.ok(response);
     }
+
+    @DeleteMapping("/{idDevice}/temperatures/{idTemperature}")
+    public ResponseEntity<?> delete(@PathVariable String idDevice, @PathVariable String idTemperature) {
+        var temperature = deviceService.getTemperature(idTemperature);
+
+        if (temperature.isEmpty())
+            return ResponseEntity.notFound().build();
+
+        deviceService.deleteTemperature(temperature.get());
+
+        return ResponseEntity.ok().build();
+    }
 }
 
